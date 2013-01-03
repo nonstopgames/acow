@@ -23,11 +23,11 @@ small screen size of iPhone, nor does it support audio on iOS.
 
 `index.html` is the only HTML file and the entry point for the game.
 
-`/js` contains all the javascript files. The entry point is in `Main.js` while `game.js` contains the main logic flow of the game.
+`/js` contains all the javascript files. The entry point is in `Main.js` while `Game.js` contains the main logic flow of the game.
 
 `/css` contains all the css style files.
 
-`assets.xml` and `configuratin.xml` contains the necessary meta data for the game.
+`assets.xml` and `configuration.xml` contains the necessary meta data for the game.
 
 `/media` contains all the media files.
 
