@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<assets img_basedir="media/img/" snd_basedir="media/snd/" snd_formats="ogg,mp3">
+
+	<!-- Menu assets -->
+
+	<image id="menu-logo">cowface.png</image>
+	<image id="main-logo">acow-logo.png</image>
+	<image id="menu-background">title_bg.jpg</image>
+
+	<image id="button-on-left">left_on.png</image>
+	<image id="button-off-left">left_off.png</image>
+	<image id="button-on-right">right_on.png</image>
+	<image id="button-off-right">right_off.png</image>
+	<image id="button-on-fill">bg_on.png</image>
+	<image id="button-off-fill">bg_off.png</image>
+
+	<!--  Game assets begin here  -->
+
+	<!-- Plain images -->
+
+	<image id="button-pause">pause.png</image>
+	<image id="button-plus">button_plus.png</image>
+	<image id="button-minus">button_minus.png</image>
+
+	<image id="message-background">scroll.png</image>
+
+	<image id="cannon-marker">cannon_marker.png</image>
+	<image id="cannon-marker-error">cannon_marker_error.png</image>
+	<image id="cannon-disabled">cannon_disabled.png</image>
+
+	<image id="cannonball">cannonball.png</image>
+	<image id='cow-cannon'>cow-fly-left.png</image>
+	<image id='mega-cow-cannon'>mega-cow-fly-left.png</image>
+	<image id="cannonball-shadow">cannonball_shadow.png</image>
+	<image id="castle">castle.png</image>
+
+	<image id="warning-marker">warning.png</image>
+
+	<image id="cloud-1">cloud1.png</image>
+	<image id="cloud-2">cloud2.png</image>
+	<image id="cloud-3">cloud3.png</image>
+	<image id="cloud-1-shadow">cloud1_shadow.png</image>
+	<image id="cloud-2-shadow">cloud2_shadow.png</image>
+	<image id="cloud-3-shadow">cloud3_shadow.png</image>
+
+	<image id="hit-explosion-light">explosion_light.png</image>
+
+	<!--  UI parts  -->
+
+	<image id="ui-buildbar-left">bottom-shelf-left.png</image>
+	<image id="ui-buildbar-right">bottom-shelf-right.png</image>
+	<image id="ui-buildbar-fill">bottom-shelf-fill.png</image>
+	<image id="ui-statusbar">status_bar.png</image>
+
+	<!-- Animations -->
+
+	<animation id="blood" frame_width="100" frame_height="100" duration="0.5" smoothing="true">
+		<image>blood.png</image>
+	</animation>
+
+	<animation id="castle-anim" frame_width="128" frame_height="128" framerate="5">
+		<image>castle_anim.png</image>
+	</animation>
+
+	<animation id="castle-disabled-anim" frame_width="128" frame_height="128" framerate="5">
+		<image>castle_disabled_anim.png</image>
+	</animation>
+
+	<animation id="hit-explosion" frame_width="64" frame_height="64" duration="1.25" smoothing="true">
+		<image>explosion_anim.png</image>
+	</animation>
+
+	<animation id="hit-ground" frame_width="64" frame_height="64" duration="1.8" smoothing="true">
+		<image>ground_hit_anim.png</image>
+	</animation>
+
+	<animation id="hit-splash" frame_width="64" frame_height="64" duration="1.25"  smoothing="true">
+		<image>splash_anim.png</image>
+	</animation>
+
+	<animation id="cannon-anim" frame_width="64" frame_height="32" framerate="16" frames="11" smoothing="true">
+		<image>cannon_anim.png</image>
+	</animation>
+
+
+	<!-- Attack ship animations -->
+	<animation id="enemy-ship-up" frame_width="64" frame_height="128" duration="0.7">
+		<image>pirateship_up_anim.png</image>
+	</animation>
+
+	<animation id="enemy-ship-down" frame_width="64" frame_height="128" duration="0.7">
+		<image>pirateship_down_anim.png</image>
+	</animation>
+
+
+	<!-- Soldier animations -->
+	<animation id="enemy-soldier-idle-left" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>soldier-left.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-walk-left" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>soldier-walk-left.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-attack-left" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>soldier-attack-left.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-death-left" frame_width="72" frame_height="32" duration="1.5">
+		<image>soldier-death-left.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-idle-right" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>soldier-right.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-walk-right" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>soldier-walk-right.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-attack-right" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>soldier-attack-right.png</image>
+	</animation>
+
+	<animation id="enemy-soldier-death-right" frame_width="72" frame_height="32" duration="1.5">
+		<image>soldier-death-right.png</image>
+	</animation>
+
+
+	<!-- Cow animations -->
+	<animation id="enemy-cow-idle-right" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>cow-right.png</image>
+	</animation>
+
+	<animation id="enemy-cow-walk-right" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>cow-walk-right.png</image>
+	</animation>
+
+	<animation id="enemy-cow-mooing-right" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>cow-moo-right.png</image>
+	</animation>
+
+	<animation id="enemy-cow-death-right" frame_width="72" frame_height="32" duration="0.2">
+		<image>cow-death-right.png</image>
+	</animation>
+
+	<animation id="enemy-cow-idle-left" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>cow-left.png</image>
+	</animation>
+
+	<animation id="enemy-cow-walk-left" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>cow-walk-left.png</image>
+	</animation>
+
+	<animation id="enemy-cow-mooing-left" frame_width="72" frame_height="32" duration="0.5" looping="true">
+		<image>cow-moo-left.png</image>
+	</animation>
+
+	<animation id="enemy-cow-death-left" frame_width="72" frame_height="32" duration="0.2">
+		<image>cow-death-left.png</image>
+	</animation>
+
+	<!-- SantaCow animations -->
+	<animation id="enemy-santa-cow-idle-right" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>santa-cow-right.png</image>
+	</animation>
+
+	<animation id="enemy-santa-cow-death-right" frame_width="72" frame_height="32" duration="0.2">
+		<image>santa-cow-death-right.png</image>
+	</animation>
+
+	<animation id="enemy-santa-cow-idle-left" frame_width="72" frame_height="32" duration="1" looping="true">
+		<image>santa-cow-left.png</image>
+	</animation>
+
+	<animation id="enemy-santa-cow-death-left" frame_width="72" frame_height="32" duration="0.2">
+		<image>cow-death-left.png</image>
+	</animation>
+
+	<!-- MegaCow animations -->
+	<animation id="enemy-mega-cow-idle-right" frame_width="144" frame_height="64" duration="1" looping="true">
+		<image>mega-cow-right.png</image>
+	</animation>
+
+	<animation id="enemy-mega-cow-death-right" frame_width="144" frame_height="64" duration="0.2">
+		<image>mega-cow-death-right.png</image>
+	</animation>
+
+	<animation id="enemy-mega-cow-idle-left" frame_width="144" frame_height="64" duration="1" looping="true">
+		<image>mega-cow-left.png</image>
+	</animation>
+
+	<animation id="enemy-mega-cow-death-left" frame_width="144" frame_height="64" duration="0.2">
+		<image>mega-cow-death-left.png</image>
+	</animation>
+
+	<!-- Cowzilla animations -->
+	<animation id="enemy-cowzilla-idle-right" frame_width="350" frame_height="155" duration="1" looping="true">
+		<image>cowzilla-right.png</image>
+	</animation>
+
+	<animation id="enemy-cowzilla-death-right" frame_width="350" frame_height="155" duration="0.2">
+		<image>cowzilla-death-right.png</image>
+	</animation>
+
+	<animation id="enemy-cowzilla-idle-left" frame_width="350" frame_height="155" duration="1" looping="true">
+		<image>cowzilla-left.png</image>
+	</animation>
+
+	<animation id="enemy-cowzilla-death-left" frame_width="350" frame_height="155" duration="0.2">
+		<image>mega-cow-death-left.png</image>
+	</animation>
+
+
+	<!-- Transport ship animations -->
+	<animation id="enemy-transport-up-moving" frame_width="72" frame_height="128" duration="0.7" looping="true">
+		<image>transport-up-moving.png</image>
+	</animation>
+
+	<animation id="enemy-transport-down-moving" frame_width="72" frame_height="128" duration="0.7" looping="true">
+		<image>transport-down-moving.png</image>
+	</animation>
+
+	<animation id="enemy-transport-up-landing" frame_width="72" frame_height="128" duration="0.7" looping="false">
+		<image>transport-up-landing.png</image>
+	</animation>
+
+	<animation id="enemy-transport-down-landing" frame_width="72" frame_height="128" duration="0.7" looping="false">
+		<image>transport-down-landing.png</image>
+	</animation>
+
+	<animation id="enemy-transport-up-idle" frame_width="72" frame_height="128" duration="0.7" looping="true">
+		<image>transport-up-idle.png</image>
+	</animation>
+
+	<animation id="enemy-transport-down-idle" frame_width="72" frame_height="128" duration="0.7" looping="true">
+		<image>transport-down-idle.png</image>
+	</animation>
+
+	<animation id="enemy-transport-up-departing" frame_width="72" frame_height="128" duration="0.7" looping="false">
+		<image>transport-up-departing.png</image>
+	</animation>
+
+	<animation id="enemy-transport-down-departing" frame_width="72" frame_height="128" duration="0.7" looping="false">
+		<image>transport-down-departing.png</image>
+	</animation>
+
+	<!-- Tilesets -->
+
+	<!-- Level tileset, used for generating the map -->
+	<tileset id="level-tiles" tile_width="64" tile_height="64">
+		<image>leveltiles.png</image>
+
+		<!-- Note - what follows with the indices is a result of a
+		     (hopefully temporary) hack that creates self-randomizing
+		     tilesets. Each entry in the index table has equal chance
+		     of being selected, so adding more instances of a
+		     particular index will make that index much more likely to
+		     be picked.  -->
+
+		<tile id="water" index="1,1,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3" />
+		<tile id="grass" index="4,5,6,7,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9" />
+		<tile id="bank-up" index="16,17,18" />
+		<tile id="bank-upright" index="42,43,44" />
+		<tile id="bank-right" index="13,14,15" />
+		<tile id="bank-downright" index="33,34,35" />
+		<tile id="bank-down" index="19,20,21" />
+		<tile id="bank-downleft" index="36,37,38" />
+		<tile id="bank-left" index="22,23,21" />
+		<tile id="bank-upleft" index="39,40,41" />
+		<tile id="bank-inner-upright" index="31,32" />
+		<tile id="bank-inner-downright" index="25,26" />
+		<tile id="bank-inner-downleft" index="27,28" />
+		<tile id="bank-inner-upleft" index="29,30" />
+
+	</tileset>
+
+	<!-- Single-tile tileset for drawing sand in a separate process -->
+	<tileset id="sand-tiles" tile_width="32" tile_height="32">
+		<image>sand.png</image>
+		<tile index="0" id="sand" />
+	</tileset>
+
+	<!-- Wall tileset, used for drawing walls -->
+	<tileset id="wall-tiles" tile_width="32" tile_height="40" offset_y="-8">
+		<image>walltiles.png</image>
+		<tile index="0"  id="center" />
+		<tile index="1"  id="none" />
+		<tile index="2"  id="updown" />
+		<tile index="3"  id="leftright" />
+		<tile index="4"  id="down" />
+		<tile index="5"  id="up" />
+		<tile index="6"  id="left" />
+		<tile index="9"  id="right" />
+		<tile index="10" id="downleft" />
+		<tile index="11" id="downright" />
+		<tile index="12" id="upleft" />
+		<tile index="13" id="upright" />
+		<tile index="7"  id="t-up" />
+		<tile index="8"  id="t-down" />
+		<tile index="16" id="t-left" />
+		<tile index="17" id="t-right" />
+		<tile index="14" id="destroyed-center" />
+		<tile index="14" id="destroyed-none" />
+		<tile index="14" id="destroyed-updown" />
+		<tile index="14" id="destroyed-leftright" />
+		<tile index="14" id="destroyed-down" />
+		<tile index="14" id="destroyed-up" />
+		<tile index="14" id="destroyed-left" />
+		<tile index="14" id="destroyed-right" />
+		<tile index="14" id="destroyed-downleft" />
+		<tile index="14" id="destroyed-downright" />
+		<tile index="14" id="destroyed-upleft" />
+		<tile index="14" id="destroyed-upright" />
+	</tileset>
+
+	<tileset id="wall-tiles-place-error" tile_width="32" tile_height="40" offset_y="-8">
+		<image>walltiles_error.png</image>
+		<tile index="0"  id="center" />
+		<tile index="1"  id="none" />
+		<tile index="2"  id="updown" />
+		<tile index="3"  id="leftright" />
+		<tile index="4"  id="down" />
+		<tile index="5"  id="up" />
+		<tile index="6"  id="left" />
+		<tile index="9"  id="right" />
+		<tile index="10" id="downleft" />
+		<tile index="11" id="downright" />
+		<tile index="12" id="upleft" />
+		<tile index="13" id="upright" />
+		<tile index="7"  id="t-up" />
+		<tile index="8"  id="t-down" />
+		<tile index="16" id="t-left" />
+		<tile index="17" id="t-right" />
+	</tileset>
+
+	<!-- Sounds -->
+	<!-- on iOS, sounds are disabled -->
+
+	<sound id="pieceGrabbed">piece_grab</sound>
+	<sound id="pieceRotate">piece_rotate</sound>
+	<sound id="wallPlaced">place_wall</sound>
+	<sound id="cannonPlaced">place_cannon</sound>
+	<sound id="playerCannonFire">cannon_fire_player</sound>
+	<sound id="enemyCannonFire">cannon_fire_enemy</sound>
+	<sound id="bulletHitGround">cannonball_hit_ground</sound>
+	<sound id="bulletHitWall">cannonball_hit_wall</sound>
+	<sound id="bulletHitShip">cannonball_hit_ship</sound>
+	<sound id="bulletHitWater">cannonball_hit_water</sound>
+	<sound id="destroyShip">destroy_ship</sound>
+	<sound id="buttonClick">button_press</sound>
+	<sound id="moo">moo</sound>
+	<sound id="cowzilla-entrance">cowzilla</sound>
+
+</assets>

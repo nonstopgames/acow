@@ -1,0 +1,484 @@
+/*
+ * Copyright (C) 2012 by NonStop Games
+ * Please refer to license.txt for licensing details
+ * 
+ * Setting up some DOM UIs
+ * Requires reset.css,
+ *
+ */
+/* Containers */
+html,body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #000000;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	outline: none;
+}
+
+@keyframes "blinking-blue" {
+ 0% {
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+   	color: rgba(255,255,255,0);
+ }
+ 100% {
+    text-shadow: 0 0 10px blue;
+   	color: blue;
+ }
+
+}
+
+@-moz-keyframes blinking-blue {
+ 0% {
+   text-shadow: 0 0 0 rgba(255,255,255,0);
+   color: rgba(255,255,255,0);
+ }
+ 100% {
+   text-shadow: 0 0 10px blue;
+   color: blue;
+ }
+
+}
+
+@-webkit-keyframes "blinking-blue" {
+ 0% {
+   text-shadow: 0 0 0 rgba(255,255,255,0);
+   color: rgba(255,255,255,0);
+ }
+ 100% {
+   text-shadow: 0 0 10px blue;
+   color: blue;
+ }
+
+}
+
+@-ms-keyframes "blinking-blue" {
+ 0% {
+   text-shadow: 0 0 0 rgba(255,255,255,0);
+   color: rgba(255,255,255,0);
+ }
+ 100% {
+   text-shadow: 0 0 10px blue;
+   color: blue;
+ }
+
+}
+
+@-o-keyframes "blinking-blue" {
+ 0% {
+   text-shadow: 0 0 0 rgba(255,255,255,0);
+   color: rgba(255,255,255,0);
+ }
+ 100% {
+   text-shadow: 0 0 10px blue;
+   color: blue;
+ }
+
+}
+
+#nsglogo {
+	position: fixed;
+	left: 5px;
+	bottom: 5px;
+	width: 100px;
+	height: 113px;
+	background: url('../media/img/nsg_logo_small_bw.png') no-repeat;
+	z-index: 5;
+}
+
+#game-container {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background: #616161;
+}
+
+#game {
+	color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	background: #000000;
+	overflow: hidden;
+}
+
+.center {
+	text-align: center;
+}
+
+/* Game elements */
+#mainmenu-title {
+	color: #ffffff;
+	font-size: x-large;
+	font-weight: bold; /*padding:  50px;
+	*/
+/*border-top:  25px;
+	*/
+/*border-bottom:  25px;
+	*/
+}
+
+.description {
+	position: absolute;
+	font-family: "Germania One";
+	font-size: x-large;
+	width: 600px;
+	text-align: center;
+	left: 50%;
+	margin-left: -250px;
+	bottom: 15%;
+}
+
+.uiButton {
+	display: block;
+	position: relative;
+}
+
+#statusbar {
+	display: block;
+	position: absolute;
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+	text-align: center;
+}
+
+/* Loading screen */
+#loading {
+	color: white;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgb(0,0,0);
+	text-align: center;
+	z-index: 9999;
+	font-family: 'Germania One';
+}
+
+#loading h1 {
+	font-size: 60px;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+}
+#loading h2 {
+	font-size: 30px;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+}
+
+#loading #barcontainer {
+	height: 20px;
+	width: 300px;
+	border: 1px solid white;
+	background: black;
+	display: inline-block;
+}
+
+#loading #bar {
+	width: 0%;
+	height: 20px;
+	background: pink;
+}
+
+.uiButton {
+	background-color: transparent;
+	background-image: url(../media/img/bg_off.png);
+	background-repeat: repeat-x;
+	height: 73px;
+	position: absolute;
+	padding: 0 1em;
+	line-height: 73px;
+	margin: 0 67px;
+	min-width: 100px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Germania One";
+	cursor: pointer;
+	text-shadow: 0 -1px 1px black, 0 1px 1px white;
+
+	-webkit-transform: scale(1,1.01);
+	-o-transform: scale(1,1.01);
+	-ms-transform: scale(1,1.01);
+	transform: scale(1,1.01);
+
+	-webkit-transition: text-shadow 0.3s;
+	-o-transition: text-shadow 0.3s;
+	-ms-transition: text-shadow 0.3s;
+	transition: text-shadow 0.3s;
+	text-align: center;
+}
+
+.uiButton:hover {
+	text-shadow: 0 -1px 1px black, 0 1px 1px white, 0 0 20px white;
+}
+
+.uiButton:before,.uiButton:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.uiButton:before {
+	width: 67px;
+	left: -67px;
+	background: url(../media/img/left_off.png);
+	background-repeat: repeat-x;
+}
+
+.uiButton:after {
+	width: 67px;
+	right: -67px;
+	background: url(../media/img/right_off.png);
+	background-repeat: no-repeat;
+}
+
+.uiButton:active {
+	background: url(../media/img/bg_on.png);
+	line-height: 75px;
+}
+
+.uiButton:active:before {
+	background: url(../media/img/left_on.png);
+}
+
+.uiButton:active:after {
+	background: url(../media/img/right_on.png);
+}
+
+.logo {
+	display: block;
+	width: 533px;
+	height: 389px;
+	margin-left: -266px;
+	position: relative;
+	left: 50%;
+	top: 1em;
+
+}
+
+.bottom-container {
+	position: absolute;
+	bottom: 5%;
+	text-align: center;
+	left: 0;
+	right: 0;
+	z-index: 20;
+}
+
+.nsglink {
+	background: url(../media/img/nsg_logo_color.png);
+	background-repeat: no-repeat;
+	background-size: 1.2em;
+	padding-left: 1.2em;
+	color: white !important;
+	font-size: xx-large;
+	font-family: "Germania One";
+
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-ms-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+.nsglink:hover{
+	text-shadow: 0 0 5px white;
+}
+
+#main-title {
+	font-size: 7em;
+	font-family: "Germania One";
+	width: 600px;
+	text-align: center;
+	margin: 0 auto;
+	text-shadow: 3px 3px 10px black;
+}
+
+#menu-highscore {
+	background: rgba(0,0,0,0.7);
+	display: inline-block;
+
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+	-ms-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+#menu-highscore.before {
+	-webkit-transform: perspective(1000px) rotateX(90deg) translate3d(0,0, 300px);
+	-o-transform: perspective(1000px) rotateX(90deg) translate3d(0,0, 300px);
+	-ms-transform: perspective(1000px) rotateX(90deg) translate3d(0,0, 300px);
+	transform: perspective(1000px) rotateX(90deg) translate3d(0,0, 300px);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+#highscore-title {
+	font-family: "Germania One";
+	font-size: 3em;
+	font-weight: bold;
+	padding: 30px 0 30px 0;
+	margin: 10px auto;
+	width: 520px;
+	text-align: center;
+	text-shadow: 0 5px 5px black;
+	color: white;
+	background: url("../media/img/status_bar.png");
+
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+
+	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-o-transform: rotate(2deg);
+	-ms-transform: rotate(2deg);
+	transform: rotate(2deg);
+}
+
+#score-container {
+	font-size: x-large;
+	margin: 0 auto;
+	width: 400px;
+	font-family: "Macondo Swash Caps";
+	background: rgba(0,0,0,0.5);
+	border-radius: 6px;
+	min-height: 12em;
+
+	-webkit-box-shadow: 0 0 10px black, inset 0 0 2px rgba(255,255,255,0.3);
+	box-shadow: 0 0 10px black, inset 0 0 2px rgba(255,255,255,0.3);
+	padding: 0.5em 0;
+	margin-bottom: 1em;
+
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#score-container.loading {
+	padding: 3em 0;
+	font-weight: bold;
+	font-size: xx-large;
+	min-height: 0;
+
+	-webkit-animation: 1s blinking-blue infinite alternate;
+	-moz-animation: 1s blinking-blue infinite alternate;
+	-ms-animation: 1s blinking-blue infinite alternate;
+	-o-animation: 1s blinking-blue infinite alternate;
+	animation: 1s blinking-blue infinite alternate;
+}
+
+#score-container>table {
+	margin: 0;
+	padding: 0;
+	width: 400px;
+}
+
+#score-container>table td {
+	padding: 0.3em 1em;
+}
+
+#score-container>table tr {
+	-webkit-transition-duration: 0.3s;
+	/*-moz-transition-duration: 0.3s;*/
+	-o-transition-duration: 0.3s;
+	-ms-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+
+	/*firefox just break all this fanciful stuff*/
+	-moz-transition: none;
+	cursor: default;
+}
+
+#score-container>table tr.mine {
+	background: rgba(255, 0, 0, 0.3);
+}
+
+#score-container>table tr:hover {
+	background: rgba(255,255,255,0.3);
+
+	-webkit-transform: scale3d(1.05, 1.05,1.05);
+	-o-transform: scale3d(1.05, 1.05,1.05);
+	-ms-transform: scale3d(1.05, 1.05,1.05);
+	transform: scale3d(1.05, 1.05,1.05);
+
+	-moz-transform: scale(1);
+}
+
+.message-banner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -212px;
+	background: url(../media/img/scrollBig.png);
+	width: 800px;
+	height: 425px;
+	z-index: 99;
+	padding: 30px 40px 20px 40px;
+	font-size: 40px;
+	font-family: "Germania One";
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	-o-transition-duration: 0.6s;
+	-ms-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+	-webkit-filter: drop-shadow(0 2px 5px black);
+}
+
+.message-banner input[type="text"] {
+	font-size: 40px;
+	background: transparent;
+	border: none;
+	border-bottom: 4px solid black;
+}
+
+.message-banner input[type="text"]:focus {
+	outline: none;
+}
+
+.message-button {
+	color: white;
+	position: absolute;
+	right: 40px;
+	bottom: 20px;
+}
+
+.message-banner.before {
+	top: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+.message-banner.after {
+	top: 80%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+}

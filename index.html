@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Apocalypse Cow!</title>
+
+		<!-- Disable user scaling on mobiles and advertise UTF-8 encoding -->
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+		<!-- Advertise apple mobile webapp capability (no effect on other browsers) -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+		<!-- Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Germania+One'       rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ruslan+Display'     rel='stylesheet' type='text/css'>
+
+		
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="css/meyerreset.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		
+
+		<!-- Libs/utils -->
+		<script type="text/javascript" src="lib/jquery.js"></script>        <!-- jQuery 1.7.2                         -->
+
+		
+
+		<script type="text/javascript" src="js/lib/bazz.js"></script>          <!-- Bazz is not quite Buzz. It's better. -->
+		<script type="text/javascript" src="js/lib/trace.js"></script>         <!-- Simple tracing library               -->
+		<script type="text/javascript" src="js/lib/detectenv.js"></script>
+		<script type="text/javascript" src="js/lib/utils.js"></script>         <!-- Non-Stop Games Common Utilities      -->
+
+		<!-- Engine -->
+		<script type="text/javascript" src="js/engine/Math.js"></script>
+		<script type="text/javascript" src="js/engine/Ease.js"></script>
+		<script type="text/javascript" src="js/engine/Vector.js"></script>
+		<script type="text/javascript" src="js/engine/Matrix.js"></script>
+		<script type="text/javascript" src="js/engine/SceneNode.js"></script>
+		<script type="text/javascript" src="js/engine/ColorLayer.js"></script>
+		<script type="text/javascript" src="js/engine/Engine.js"></script>
+		<script type="text/javascript" src="js/engine/Actor.js"></script>
+		<script type="text/javascript" src="js/engine/ImageSource.js"></script>
+		<script type="text/javascript" src="js/engine/Bitmap.js"></script>
+		<script type="text/javascript" src="js/engine/Animation.js"></script>
+		<script type="text/javascript" src="js/engine/Sprite.js"></script>
+		<script type="text/javascript" src="js/engine/Scene.js"></script>
+		<script type="text/javascript" src="js/engine/SoftButton.js"></script>
+		<script type="text/javascript" src="js/engine/CoolButton.js"></script>
+		<script type="text/javascript" src="js/engine/Timer.js"></script>
+		<script type="text/javascript" src="js/engine/Tileset.js"></script>
+		<script type="text/javascript" src="js/engine/Tilemap.js"></script>
+		<script type="text/javascript" src="js/engine/TextSprite.js"></script>
+		<script type="text/javascript" src="js/engine/ActorPool.js"></script>
+
+
+		<!-- User interface  -->
+		<script type="text/javascript" src="js/ui/UIButton.js"></script>
+
+
+		<!-- Menu -->
+		<script type="text/javascript" src="js/menu/Menu.js"></script>
+		<script type="text/javascript" src="js/menu/MainMenu.js"></script>
+		<script type="text/javascript" src="js/menu/HighscoreMenu.js"></script>
+
+
+		<!-- Game -->
+		<script type="text/javascript" src="js/game/Entity.js"></script>
+		<script type="text/javascript" src="js/game/Friendly.js"></script>
+		<script type="text/javascript" src="js/game/Enemy.js"></script>
+		<script type="text/javascript" src="js/game/BlockShape.js"></script>
+		<script type="text/javascript" src="js/game/BlockMarker.js"></script>
+		<script type="text/javascript" src="js/game/Castle.js"></script>
+		<script type="text/javascript" src="js/game/Cannon.js"></script>
+		<script type="text/javascript" src="js/game/Bullet.js"></script>
+		<script type="text/javascript" src="js/game/CowBullet.js"></script>
+		<script type="text/javascript" src="js/game/CannonMarker.js"></script>
+		<script type="text/javascript" src="js/game/HitEffect.js"></script>
+		<script type="text/javascript" src="js/game/Ship.js"></script>
+		<script type="text/javascript" src="js/game/Map.js"></script>
+		<script type="text/javascript" src="js/game/Wall.js"></script>
+		<script type="text/javascript" src="js/game/MessageBanner.js"></script>
+		<script type="text/javascript" src="js/game/DomMessageBanner.js"></script>
+		<script type="text/javascript" src="js/game/TileMarker.js"></script>
+		<script type="text/javascript" src="js/game/DamageMarker.js"></script>
+		<script type="text/javascript" src="js/game/ScoreMarker.js"></script>
+		<script type="text/javascript" src="js/game/ImpactText.js"></script>
+		<script type="text/javascript" src="js/game/Cloud.js"></script>
+		<script type="text/javascript" src="js/game/Camera.js"></script>
+		<script type="text/javascript" src="js/game/Shelf.js"></script>
+		<script type="text/javascript" src="js/game/TransportShip.js"></script>
+		<script type="text/javascript" src="js/game/CowTransportShip.js"></script>
+		<script type="text/javascript" src="js/game/Soldier.js"></script>
+		<script type="text/javascript" src="js/game/Cow.js"></script>
+		<script type="text/javascript" src="js/game/SantaCow.js"></script>
+		<script type="text/javascript" src="js/game/MegaCow.js"></script>
+		<script type="text/javascript" src="js/game/Cowzilla.js"></script>
+		<script type="text/javascript" src="js/game/DefeatElement.js"></script>
+		<script type="text/javascript" src="js/game/Game.js"></script>
+
+
+		<!-- Core -->
+		<script type="text/javascript" src="js/XMLLoader.js"></script>
+		<script type="text/javascript" src="js/AssetLoader.js"></script>
+		<script type="text/javascript" src="js/Configuration.js"></script>
+		<script type="text/javascript" src="js/Main.js"></script>
+		
+	</head>
+	<body>
+
+	  <!-- Loading placeholder - removed once game starts initializing -->
+	  <div id="loading">
+		<h1>Apocalypse Cow!</h1>
+		<div id="ticker">
+		  <img src="media/img/loading.png">
+		  </div>
+		  <div id="barcontainer">
+			<div id="bar"></div>
+		  </div>
+		  <h2>Loading...</h2>
+		  <span>If this takes an unusually long time, something's wrong.</span>
+		</div>
+
+		<!-- Game placement div; allows us to place the game window on the screen using CSS.
+		     The actual game window will be created inside this; div id="game" -->
+		<div id="nsglogo"></div>
+		<div id="game-container"></div>
+
+	</body>
+</html>
