@@ -10,7 +10,7 @@ You can play it on [http://acow.nonstop-games.com](http://acow.nonstop-games.com
 
 The codes are licensed under MIT License, while the media files
 (images and audio files) are licensed under Creative Commons
-License. Refer to [license.txt](blob/master/license.txt) and [media/license.html](blob/master/media/license.html) for more
+License. Refer to `license.txt` and `media/license.html` for more
 details.
 
 ##Support
@@ -41,5 +41,5 @@ you have to [disable the its security setting](http://stackoverflow.com/question
 You can also set up the game in a server but should implement the
 simple API for storing and fetching the high scores. To support the
 global high score ranking, please refer to comments in
-[DefeatElement.js](blob/master/js/game/DefeatElement.js) regarding the expected responses for its ajax
+`js/game/DefeatElement.js` regarding the expected responses for its ajax
 requests.
