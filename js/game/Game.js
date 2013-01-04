@@ -118,6 +118,7 @@ function Game() {
 	this._object_placed = false;
 
 	this._firstMegaCow = true;
+	this._hasCowzilla = false;
 
 
 	// Objects
@@ -369,6 +370,7 @@ Game.prototype.init = function() {
 	this._enemy_transports_num_perWaveAdd = g_config.getFloat('global.enemies.transports.@perWave',2);
 
 	this._firstMegaCow = true;
+	this._hasCowzilla = false;
 
 
 	// Add elements to screen
@@ -1643,6 +1645,14 @@ Game.prototype.createBlood = function(x,y) {
 };
 
 /*
+ * Tell the caller whether it wants a cowzilla
+ */
+Game.prototype.wantCowzilla = function(){
+	return !this._hasCowzilla && this._wave_num > 3;
+};
+
+
+/*
  * Generic function for spawning enemy units
  */
 Game.prototype.spawnEnemyFromPool = function(pool, land, x, y){
@@ -1724,6 +1734,7 @@ Game.prototype.spawnCowzilla = function(x, y){
 	if(this._wave_num < 4){
 		return;
 	}
+	this._hasCowzilla = true;
 	this.createImpactText("Cowzilla!");
 	this._cowzillaSound.play();
 	this.spawnEnemyFromPool(this._cowzillaPool, true, x, y);

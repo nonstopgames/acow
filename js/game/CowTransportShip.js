@@ -23,15 +23,19 @@ CowTransportShip.prototype.unloadSoldier = function() {
 	var gsy = g_game.getGridSizeY();
 	
 	this._num_soldiers--;
-	var r = Math.random();
-	if(r < this._cowzillaProb){
+	if(g_game.wantCowzilla()){
 		g_game.spawnCowzilla (this.getX() + this._unload_offset_x - 32 + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
-	}else if(r < this._megaProb){
-		g_game.spawnMegaCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
-	}else if(r < this._santaProb){
-		g_game.spawnSantaCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
 	}else{
-		g_game.spawnCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
+		var r = Math.random();
+		if(r < this._cowzillaProb){
+			g_game.spawnCowzilla (this.getX() + this._unload_offset_x - 32 + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
+		}else if(r < this._megaProb){
+			g_game.spawnMegaCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
+		}else if(r < this._santaProb){
+			g_game.spawnSantaCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
+		}else{
+			g_game.spawnCow(this.getX() + this._unload_offset_x + Math.rand(-gsx,0),this.getY() + this._unload_offset_y + Math.rand(-gsy,gsy));
+		}
 	}
 	
 	this._unload_timer.stop();
