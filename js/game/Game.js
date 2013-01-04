@@ -856,19 +856,11 @@ Game.prototype.initBuildPhase = function() {
 	this._blockMarker.hide();
 
 	// Mark wall tiles as occupied...
+	var self = this;
 	for(var i = 0; i < this._landTroops.length; ++i) {
-		var t = this._landTroops[i];
-		var xx = (t.getX() / this._grid_x) | 0;
-		var yy = (t.getY() / this._grid_y) | 0;
-		this._walls.markTileOccupied(xx - 1, yy - 1);
-		this._walls.markTileOccupied(xx - 0, yy - 1);
-		this._walls.markTileOccupied(xx + 1, yy - 1);
-		this._walls.markTileOccupied(xx - 1, yy + 0);
-		this._walls.markTileOccupied(xx - 0, yy + 0);
-		this._walls.markTileOccupied(xx + 1, yy + 0);
-		this._walls.markTileOccupied(xx - 1, yy + 1);
-		this._walls.markTileOccupied(xx - 0, yy + 1);
-		this._walls.markTileOccupied(xx + 1, yy + 1);
+		this._landTroops[i].occupyTiles(this._grid_x, this._grid_y, function(x, y){
+			self._walls.markTileOccupied(x, y);
+		});
 	}
 	
 	// Update state
@@ -1025,19 +1017,11 @@ Game.prototype.initPlacementPhase = function() {
 	this._object_placed = false;
 
 	// Mark wall tiles as occupied...
+	var self = this;
 	for(var i = 0; i < this._landTroops.length; ++i) {
-		var t = this._landTroops[i];
-		var xx = (t.getX() / this._grid_x) | 0;
-		var yy = (t.getY() / this._grid_y) | 0;
-		this._walls.markTileOccupied(xx - 1, yy - 1);
-		this._walls.markTileOccupied(xx - 0, yy - 1);
-		this._walls.markTileOccupied(xx + 1, yy - 1);
-		this._walls.markTileOccupied(xx - 1, yy + 0);
-		this._walls.markTileOccupied(xx - 0, yy + 0);
-		this._walls.markTileOccupied(xx + 1, yy + 0);
-		this._walls.markTileOccupied(xx - 1, yy + 1);
-		this._walls.markTileOccupied(xx - 0, yy + 1);
-		this._walls.markTileOccupied(xx + 1, yy + 1);
+		this._landTroops[i].occupyTiles(this._grid_x, this._grid_y, function(x, y){
+			self._walls.markTileOccupied(x, y);
+		});
 	}
 	
 	this._map.getSprite().addChild(this._buildBackground);

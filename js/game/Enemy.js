@@ -199,6 +199,31 @@ Enemy.prototype.moveForward = function(sync,sprite) {
 	return this;
 };
 
+Enemy.prototype.occupyTiles = function(gx, gy, callback){
+	var x = this.getX(),
+		y = this.getY(),
+		lx = x - this._sprite.getHeight() / 2,
+		mx = x + this._sprite.getHeight() / 2,
+		ly = y - this._sprite.getHeight() / 2,
+		my = y + this._sprite.getHeight() / 2;
+	lx = lx / gx | 0;
+	mx = mx / gx | 0;
+	ly = ly / gy | 0;
+	my = my / gy | 0;
+	var xs = [], ys = [];
+	for(var i = lx; i <= mx; i++){
+		xs.push(i);
+	}
+	for(var i = ly; i <= my; i++){
+		ys.push(i);
+	}
+	xs.forEach(function(ex){
+		ys.forEach(function(ey){
+			callback(ex, ey);
+		});
+	});
+};
+
 /**
  * Debug drawing routine for world-space display of waypoints
  * Remebmer to un-rotate the matrix first.

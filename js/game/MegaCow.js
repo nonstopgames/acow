@@ -95,7 +95,6 @@ MegaCow.getMoo = function(){
 	return [MegaCow.genAni['moo_left'].copy(), MegaCow.genAni['moo_right'].copy()];
 };
 
-
 MegaCow.prototype.spawn = function(x, y){
 	Cow.prototype.spawn.call(this, x, y);
 	this.setScoreValue(g_config.getFloat('enemies.cow.score',1) * 2);

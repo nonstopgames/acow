@@ -391,6 +391,37 @@ Soldier.prototype.processHit = function(bullet, x, y) {
 	return false;
 };
 
+Soldier.prototype.occupyTiles = function(gx, gy, callback){
+	// note that the solider's height is slightly larger than a tile
+	// also its width
+	var x = this.getX() / gx,
+		rx = Math.round(x),
+		fx = x | 0;
+	if(rx === fx && fx !== x){
+		rx--;
+	}
+	var xs = [rx, fx],
+		ys = [this.getY() - this._sprite.getHeight() / 2, this.getY(), this.getY() + this._sprite.getHeight() / 2].map(function(elm){
+			return elm / gy | 0;
+		});
+	xs.forEach(function(ex){
+		ys.forEach(function(ey){
+			callback(ex, ey);
+		});
+	});
+	// for the spear
+	// which is slighly below the center
+	if(this._direction === 0){
+		fx--;
+	}else{
+		fx++;
+	}
+	ys.shift();
+	ys.forEach(function(ey){
+		callback(fx, ey);
+	});
+};
+
 /**
  * Remove self from game area and mark object as inactive
  */
