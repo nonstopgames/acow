@@ -860,9 +860,13 @@ Game.prototype.initBuildPhase = function() {
 	// Mark wall tiles as occupied...
 	var self = this;
 	for(var i = 0; i < this._landTroops.length; ++i) {
-		this._landTroops[i].occupyTiles(this._grid_x, this._grid_y, function(x, y){
-			self._walls.markTileOccupied(x, y);
-		});
+		if(this._landTroops[i].isDying()){
+			this._landTroops[i].remove();
+		}else{
+			this._landTroops[i].occupyTiles(this._grid_x, this._grid_y, function(x, y){
+				self._walls.markTileOccupied(x, y);
+			});
+		}
 	}
 	
 	// Update state

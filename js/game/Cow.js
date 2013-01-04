@@ -265,6 +265,10 @@ Cow.prototype.spawn = function(x, y) {
 	
 };
 
+Cow.prototype.isDying = function(){
+	return this._state === Cow.state.dying;
+};
+
 /**
  * randomly decides if the cow moos
  */
@@ -362,7 +366,7 @@ Cow.prototype.update = function(sync) {
 		
 		var bias = this._deathTimer.getElapsed() / this._deathTimer.getTarget();
 		
-		this._sprite.setOpacity(Ease.lerp(bias,1, 0));
+		this._sprite.setOpacity(Ease.lerp(bias,1, 0.5));
 		this._sprite.setOffset(this._off_x, this._off_y + Ease.lerp(bias, 0, -40));
 
 		if(this._deathTimer.isComplete()) {

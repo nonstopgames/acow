@@ -391,6 +391,10 @@ Soldier.prototype.processHit = function(bullet, x, y) {
 	return false;
 };
 
+Soldier.prototype.isDying = function(){
+	return this._state === Soldier.state.dying;
+};
+
 Soldier.prototype.occupyTiles = function(gx, gy, callback){
 	// note that the solider's height is slightly larger than a tile
 	// also its width
