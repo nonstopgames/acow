@@ -389,6 +389,12 @@ ShelfBlock.prototype.updateSprite = function(obj) {
 		
 	}
 	
+	if(w < 2){
+		w = 2;
+	}
+	if(h < 2){
+		h = 2;
+	}
 	obj.container.setSize((w + 2) * xadd,(h + 2) * yadd);
 	obj.container.setScale(0.6);
 };
