@@ -209,7 +209,7 @@
 	</animation>
 
 	<animation id="enemy-cowzilla-death-left" frame_width="350" frame_height="155" duration="0.2">
-		<image>mega-cow-death-left.png</image>
+		<image>cowzilla-death-left.png</image>
 	</animation>
 
 
