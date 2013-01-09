@@ -354,7 +354,7 @@ BlockMarker.prototype.placeBlock = function() {
 			this._error = true;
 			
 			this.updateSprite();
-			this._sound_place.play_mc();
+			this._sound_place.play();
 			
 		}
 	}
@@ -413,7 +413,7 @@ BlockMarker.prototype.rotate = function(skipUpdate) {
 	if(!skipUpdate) {
 		wall.clearWallMarks().addShape(this._data,this._grid_x,this._grid_y,true);
 		wall.update();
-		this._sound_rotate.play_mc();
+		this._sound_rotate.play();
 		g_game.updateCannonState();
 		g_game.updateCastleState();
 	}
@@ -525,7 +525,7 @@ BlockMarker.prototype.followMouse = function() {
 	this._followMouse = true;
 	this._grabOffsetX = this._container.getX() - g_game.getWorldX(g_input.getX());
 	this._grabOffsetY = this._container.getY() - g_game.getWorldY(g_input.getY());
-	this._sound_grab.play_mc();
+	this._sound_grab.play();
 };
 
 BlockMarker.prototype.unfollowMouse = function() {

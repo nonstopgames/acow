@@ -358,7 +358,7 @@ TransportShip.prototype.destroy = function() {
 	g_game.addScore(score);
 	g_game.createScoreMarker(sx,sy,score);
 	
-	this._sound_destroy.play_mc();
+	this._sound_destroy.play();
 	
 };
 

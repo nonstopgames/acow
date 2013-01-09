@@ -57,8 +57,16 @@ function CastleDefense() {
 
 	// Set up globals
 	detectEnvironment();   // Used for local runs, sets up iface and type meta tags
-	g_assets = new AssetLoader('assets.xml');
-	g_config = new Configuration('configuration.xml');
+    if ( window.type == 'ios' ) {
+        if ( window.typeMajorVersion <= 5 ) {
+            // iOS HTML5 audio is totally messed up before iOS 6 that supports WebAudio
+            bozz.isSupported = function() { return false; }
+        }
+    }
+
+	window.g_assets = new AssetLoader('assets.xml');
+	window.g_config = new Configuration('configuration.xml');
+
 
 	// Load assets and configuration
 	var configLoaded   = false;
@@ -82,7 +90,9 @@ function CastleDefense() {
 	g_assets.onLoadComplete = assetLoadComplete;
 
 	g_config.load();
-	g_assets.load(false, function(p) {
+	// init web audio with dummy mp3
+	bozz.initToWebAudio("media/snd/piece_rotate.mp3");
+	g_assets.load(true, function(p) {
 		p = ~~(p * 100);
 		$('#loading #bar').css('width', p + '%' );
 	});
@@ -97,20 +107,12 @@ CastleDefense.prototype.init = function() {
 	// Remove loading placeholder
 	$('#loading').remove();
 
-	// Initialize environment
-	if(isMobile){
-		// no sound for iPad :P
-		Bazz.setEnabled(false);
-	}else{
-		Bazz.setEnabled(true);
-		Bazz.init();
-	}
-	g_engine = new Engine('game-container','game');
-	g_env = g_engine.getEnvironment();
-	g_input = g_engine.getInput();
+	window.g_engine = new Engine('game-container','game');
+	window.g_env = g_engine.getEnvironment();
+	window.g_input = g_engine.getInput();
 
 	// Create menu object - menu creates game object when play is pressed
-	g_menu = new Menu();
+	window.g_menu = new Menu();
 	g_menu.init();              // Initialize menu
 	g_engine.start();
 

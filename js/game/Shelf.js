@@ -302,7 +302,7 @@ ShelfBlock.prototype.rotate = function(skipUpdate, obj) {
 	}
 	if(!skipUpdate) {
 		this.updateSprite(obj);
-		this._sound_rotate.play_mc();
+		this._sound_rotate.play();
 	}
 };
 

@@ -910,9 +910,8 @@ Game.prototype.updateBuildPhase = function() {
 	if(this._message.isActive()) {
 		this._shelf.visible = false;
 	} else {
-		if(!this._blockMarker.isVisible()) {
-			this._shelf.visible = true;
-		} else {
+		this._shelf.visible = true;
+		if(this._blockMarker.isVisible()) {
 			var show = this._blockMarker.canPlaceBlock();
 			if(this._shelf.allowingItem() === false) {
 				if(show && !this._shelf.isDragging()) this._shelf.setAllowingItem(true);

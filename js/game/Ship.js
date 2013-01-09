@@ -269,7 +269,7 @@ Ship.prototype.update = function(sync) {
 						}
 						bullet.shoot(this,this._sprite.getX(),this._sprite.getY(),target.x,target.y,350);
 						this._firingTimer.reset().addTime(Math.random() * -1.5).start();
-						this._sound_shoot.play_mc();
+						this._sound_shoot.play();
 					} else {
 						this._currentTarget = null;
 					}
@@ -329,6 +329,6 @@ Ship.prototype.destroy = function() {
 	g_game.addScore(this.getScoreValue());
 	g_game.createScoreMarker(this._sprite.getX(),this._sprite.getY(),this.getScoreValue());
 	
-	this._sound_destroy.play_mc();
+	this._sound_destroy.play();
 	
 };

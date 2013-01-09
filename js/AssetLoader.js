@@ -17,9 +17,6 @@
  *
  * Graphics objects are completely dependent on engine/*.
  *
- * For now, the sound loading code is specific to
- * Bazz, but this is very easily changed.
- *
  * creation date: 15-06-2012
  *
  */
@@ -147,7 +144,7 @@ AssetLoader.TilemapRes = function(id,tilesetresname) {
  * @param load_sounds whether to load sounds or not
  */
 AssetLoader.prototype.load = function(load_sounds, progresscb) {
-	Bazz.defaults.preload = true;
+	bozz.defaults.preload = true;
 	this.progresscb = progresscb;
 	this._load_sounds = (load_sounds === undefined) ? (true) : (load_sounds == true);
 	if(this._xml_data === null) {
@@ -356,9 +353,6 @@ AssetLoader.prototype.__parseXML = function(xml) {
 
 	trace("AssetLoader: image base dir: " + img_basedir + ", sound base dir: " + snd_basedir + ", sound formats: " + snd_formats);
 
-	// Set Bazz to accept all our sound formats..
-	Bazz.setSupportedFormats(snd_formats);
-
 	var that = this;
 
 	///
@@ -544,7 +538,7 @@ AssetLoader.prototype.__download = function() {
 	if(this._load_sounds) {
 		for(var i = 0; i < this._soundQueue.length; ++i) {
 			var res = this._soundQueue[i];
-			var snd = new Bazz.sound(res.src);
+			var snd = new bozz.sound(res.src);
 			res.sound = snd;
 			snd.load(/*getSoundCompleteHandler(res),getSoundErrorHandler(res)*/);
 			setTimeout(getSoundCompleteHandler(res),0);
@@ -611,7 +605,7 @@ AssetLoader.prototype.__imageError = function(obj) {
  * @param obj a AssetLoader.SoundRes object
  */
 AssetLoader.prototype.__soundComplete = function(obj) {
-	trace("Loaded sound " + obj.src + " (" + obj.sound.sound.currentSrc + ")"); // TODO: don't try this at home, kids...
+	// trace("Loaded sound " + obj.src + " (" + obj.sound.sound.currentSrc + ")"); // TODO: don't try this at home, kids...
 	this._soundQueue.splice(this._soundQueue.indexOf(obj),1);
 	this.__resourceLoaded(obj);
 };

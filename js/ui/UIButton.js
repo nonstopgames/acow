@@ -36,7 +36,11 @@ function UIButton(text) {
 	this._elem.onmousedown = function(e) {
 		e.stopPropagation();
 	};
-	this._elem.onmouseup = function(e) {
+	var upevent = "onmouseup";
+	if("ontouchend" in window){
+		upevent = "ontouchend";
+	}
+	this._elem[upevent] = function(e) {
 		e.stopPropagation();
 		that.onClick.call(that);
 	};

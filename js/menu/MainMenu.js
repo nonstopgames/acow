@@ -48,6 +48,9 @@ function MainMenu() {
 
 	var that = this;
 	playButton.onClick = function() {
+		if(bozz.usingWebAudio){
+			bozz.unmuteiOS();
+		}
 		that.doStartGame();
 	};
 
@@ -80,16 +83,10 @@ MainMenu.prototype.doStartGame = function() {
 
 	trace("Quitting menu, starting game");
 
-	g_assets.onLoadComplete = function() {
-		trace("Sound asset load complete");
-		if(!g_game) g_game = new Game();
-		g_menu.end();
-		g_game.init();
-		g_game.start();
-		g_assets.onLoadComplete = function() {};
-	};
-	g_assets.load();
-	
+	if(!g_game) g_game = new Game();
+	g_menu.end();
+	g_game.init();
+	g_game.start();
 };
 
 

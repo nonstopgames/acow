@@ -198,7 +198,7 @@ CannonMarker.prototype.followMouse = function() {
 	this._followMouse = true;
 	this._grabOffsetX = this._sprite.getX() - g_game.getWorldX(g_input.getX());
 	this._grabOffsetY = this._sprite.getY() - g_game.getWorldY(g_input.getY());
-	this._sound_grab.play_mc();
+	this._sound_grab.play();
 };
 
 CannonMarker.prototype.unfollowMouse = function() {

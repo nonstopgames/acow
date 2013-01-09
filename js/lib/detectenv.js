@@ -34,6 +34,14 @@ function detectEnvironment() {
 		// Detect mobile browsers (and possible pad type)
 		if(agent.indexOf('iPad') != -1) {
 			window.iface = 'tablet';
+
+            // get iOS version info
+            var version = agent.match(/OS ([0-9_]+)/)[1];
+            if ( version ) {
+                version = version.split('_');
+                window.typeMajorVersion = ~~version[0];
+                window.typeMinorVersion = ~~version[1];
+            }
 			return 'ios';
 		}
 		if(agent.indexOf('iPhone') != -1) return 'ios';
