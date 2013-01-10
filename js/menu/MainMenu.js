@@ -26,7 +26,7 @@ function MainMenu() {
 
 	var description = document.createElement("div");
 	description.className = "description";
-	description.innerHTML = g_config.getString("global.description");
+	description.innerHTML = g_config.global.description;
 
 	var bottomContainer = document.createElement("div");
 	bottomContainer.className = "bottom-container";
@@ -83,11 +83,7 @@ MainMenu.prototype.doStartGame = function() {
 
 	trace("Quitting menu, starting game");
 
-	if(!g_game) g_game = new Game();
 	g_menu.end();
 	g_game.init();
 	g_game.start();
 };
-
-
-

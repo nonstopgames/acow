@@ -28,7 +28,7 @@ function Ship() {
 	this._sprite = new Sprite(this._up_anim);
 
 	// Debug draw hack
-	if(g_config.getBoolean('global.debug',false)) {
+	if(g_config.global.debug) {
 		var that = this;	
 		var debug_draw = function(canvas,context,matrix) {
 			Sprite.prototype.draw.call(this,canvas,context,matrix);
@@ -64,7 +64,7 @@ function Ship() {
 		this._sprite.draw = debug_draw;
 	}
 	
-	this._sprite.setScale(g_config.getFloat('enemies.ship.scale',0.9));
+	this._sprite.setScale(g_config.enemies.ship.scale);
 	this._sprite.setOffset(0,0);
 
 	// Set hit rectangle size
@@ -76,12 +76,12 @@ function Ship() {
 	
 	this._sound_destroy = g_assets.getSound('destroyShip');
 	
-	this.setScoreValue(g_config.getFloat('enemies.ship.score',10));
-	this.setHitpoints(g_config.getFloat('enemies.ship.health',10));
-	this.setAccuracy(g_config.getFloat('enemies.ship.accuracy',0));
-	this.setShotDamage(g_config.getFloat('enemies.ship.damage',1));
-	this.setShotDamageVariance(g_config.getFloat('enemies.ship.damage.@variance',0));
-	this.setAttackRadius(g_config.getFloat('enemies.ship.range',200));
+	this.setScoreValue(g_config.enemies.ship.score);
+	this.setHitpoints(g_config.enemies.ship.health);
+	this.setAccuracy(g_config.enemies.ship.accuracy);
+	this.setShotDamage(g_config.enemies.ship.damage.value);
+	this.setShotDamageVariance(g_config.enemies.ship.damage.variance);
+	this.setAttackRadius(g_config.enemies.ship.range);
 
 	this._sound_shoot = g_assets.getSound('enemyCannonFire');
 
@@ -110,11 +110,11 @@ Ship.prototype.isReady = function() {
 Ship.prototype.spawn = function() {
 
 	// Reset params
-	this.setHitpoints(g_config.getFloat('enemies.ship.health',10));
-	this.setAccuracy(g_config.getFloat('enemies.ship.accuracy',0));
-	this.setShotDamage(g_config.getFloat('enemies.ship.damage',1));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.ship.speed.@min',45),g_config.getFloat('enemies.ship.speed.@max',45)));
-	this._firingTimer.setTarget(g_config.getFloat('enemies.ship.reloadTime',2)).reset().addTime(Math.random() * -1.5).start();
+	this.setHitpoints(g_config.enemies.ship.health);
+	this.setAccuracy(g_config.enemies.ship.accuracy);
+	this.setShotDamage(g_config.enemies.ship.damage.value);
+	this.setSpeed(Math.rand(g_config.enemies.ship.speed.min,g_config.enemies.ship.speed.max));
+	this._firingTimer.setTarget(g_config.enemies.ship.reloadTime).reset().addTime(Math.random() * -1.5).start();
 
 	var gsizex = g_game.getGridSizeX();
 	var gsizey = g_game.getGridSizeY();

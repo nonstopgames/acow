@@ -21,8 +21,8 @@ function Bullet() {
 
 	if(Bullet.viewVector === null) {
 		Bullet.viewVector = new vec2(
-			g_config.getFloat('global.cannonballViewOffset.@x',0),
-			g_config.getFloat('global.cannonballViewOffset.@y',0)
+			g_config.global.cannonballViewOffset.x,
+			g_config.global.cannonballViewOffset.y
 		);
 		Bullet.viewVector.normalize();
 	}
@@ -43,8 +43,8 @@ function Bullet() {
 	this._current_x = 0;
 	this._current_y = 0;
 
-	this._scale_min = g_config.getFloat('global.cannonballs.@scaleMin',0.75);
-	this._scale_max = g_config.getFloat('global.cannonballs.@scaleMax',1.35);
+	this._scale_min = g_config.global.cannonballs.scaleMin;
+	this._scale_max = g_config.global.cannonballs.scaleMax;
 
 	this._damage = 0;
 

@@ -527,10 +527,10 @@ function Shelf() {
 
 	this._object = null;
 	this._fillColor = "";
-	this.setColor(g_config.getInteger('ui.shelf.@r'),
-				  g_config.getInteger('ui.shelf.@g'),
-				  g_config.getInteger('ui.shelf.@b'),
-				  g_config.getFloat('ui.shelf.@a'));
+	this.setColor(g_config.ui.shelf.r,
+				  g_config.ui.shelf.g,
+				  g_config.ui.shelf.b,
+				  g_config.ui.shelf.a);
 
 	this._cache = new Image();
 

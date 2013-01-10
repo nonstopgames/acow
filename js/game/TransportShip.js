@@ -36,7 +36,7 @@ function TransportShip() {
 	this._sprite = new Sprite(this._anim_up_moving);
 	
 	// Debug draw hack
-	if(g_config.getBoolean('global.debug',false)) {
+	if(g_config.global.debug) {
 		var that = this;	
 		var debug_draw = function(canvas,context,matrix) {
 			Sprite.prototype.draw.call(this,canvas,context,matrix);
@@ -69,7 +69,7 @@ function TransportShip() {
 		this._sprite.draw = debug_draw;
 	}
 	
-	this._sprite.setScale(g_config.getFloat('enemies.transport.scale',0.9));
+	this._sprite.setScale(g_config.enemies.transport.scale);
 	this._sprite.setOffset(0,0);
 	
 	// Set hit rectangle size
@@ -85,19 +85,19 @@ function TransportShip() {
 	this._currentTarget = null;
 	
 	this._unload_timer = new Timer();
-	this._unload_timer.setTarget(g_config.getFloat('enemies.transport.unloadDelay',1));
+	this._unload_timer.setTarget(g_config.enemies.transport.unloadDelay);
 	this._num_soldiers = 0;         // Number of carried soldiers
 	
-	this._unload_offset_x = g_config.getFloat('enemies.transport.unloadOffset.@x',0);
-	this._unload_offset_y = g_config.getFloat('enemies.transport.unloadOffset.@y',0);
+	this._unload_offset_x = g_config.enemies.transport.unloadOffset.x;
+	this._unload_offset_y = g_config.enemies.transport.unloadOffset.y;
 	
-	this.setScoreValue(g_config.getFloat('enemies.transport.score',10));
-	this.setHitpoints(g_config.getFloat('enemies.transport.health',10));
-	this.setAccuracy(g_config.getFloat('enemies.transport.accuracy',0));
-	this.setShotDamage(g_config.getFloat('enemies.transport.damage',1));
-	this.setAttackRadius(g_config.getFloat('enemies.transport.range',200));
+	this.setScoreValue(g_config.enemies.transport.score);
+	this.setHitpoints(g_config.enemies.transport.health);
+	this.setAccuracy(g_config.enemies.transport.accuracy);
+	this.setShotDamage(g_config.enemies.transport.damage.value);
+	this.setAttackRadius(g_config.enemies.transport.range);
 	
-	this._score_per_soldier = g_config.getFloat('enemies.transport.scorePerSoldier',10);
+	this._score_per_soldier = g_config.enemies.transport.scorePerSoldier;
 
 	this.onWaypointInterrupt = function(x,y,interrupt_id) {
 		//trace("TransportShip: Waypoint interrupt " + interrupt_id + " reached at " + x + "," + y);
@@ -115,16 +115,16 @@ TransportShip.prototype.getSprite = function() {
 TransportShip.prototype.spawn = function() {
 	
 	// Reset params
-	this.setScoreValue(g_config.getFloat('enemies.transport.score',10));
-	this.setHitpoints(g_config.getFloat('enemies.transport.health',10));
-	this.setAccuracy(g_config.getFloat('enemies.transport.accuracy',0));
-	this.setShotDamage(g_config.getFloat('enemies.transport.damage',1));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.transport.speed.@min',45),g_config.getFloat('enemies.transport.speed.@max',45)));
-	this._num_soldiers = Math.rand(g_config.getInteger('enemies.transport.soldierCapacity.@min',1),g_config.getInteger('enemies.transport.soldierCapacity.@max',2));
+	this.setScoreValue(g_config.enemies.transport.score);
+	this.setHitpoints(g_config.enemies.transport.health);
+	this.setAccuracy(g_config.enemies.transport.accuracy);
+	this.setShotDamage(g_config.enemies.transport.damage);
+	this.setSpeed(Math.rand(g_config.enemies.transport.speed.min, g_config.enemies.transport.speed.max));
+	this._num_soldiers = Math.rand(g_config.enemies.transport.soldierCapacity.min, g_config.enemies.transport.soldierCapacity.max);
 	this._unloading = false;
 	
-	var sxoffs = g_config.getFloat('enemies.transport.shoreOffset.@x',0);
-	var syoffs = g_config.getFloat('enemies.transport.shoreOFfset.@y',0);
+	var sxoffs = g_config.enemies.transport.shoreOffset.x;
+	var syoffs = g_config.enemies.transport.shoreOffset.y;
 	
 	var gsizex = g_game.getGridSizeX();
 	var gsizey = g_game.getGridSizeY();

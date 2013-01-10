@@ -106,7 +106,7 @@ var DefeatElement = function(){
 		twBut.href="https://twitter.com/share";
 		if(twBut.dataset){
 			twBut.dataset["text"] = "Play Apocalypse Cow and beat my highscore " + score + "!";
-			twBut.dataset["url"] = g_config.getString("global.url");
+			twBut.dataset["url"] = g_config.global.url;
 			twBut.dataset["count"] = "none";
 			twBut.dataset["size"] = "large";
 			twBut.dataset["hashtags"] = "acow,Mayanapocalypse,nowplaying";
@@ -114,7 +114,7 @@ var DefeatElement = function(){
 		}else{
 			// grrr IE9 grrr
 			twBut.setAttribute("data-text", "Play Apocalypse Cow and beat my highscore " + score + "!");
-			twBut.setAttribute("data-url", g_config.getString("global.url"));
+			twBut.setAttribute("data-url", g_config.global.url);
 			twBut.setAttribute("data-count", "none");
 			twBut.setAttribute("data-size", "large");
 			twBut.setAttribute("data-hashtags", "acow,Mayanapocalypse,nowplaying");

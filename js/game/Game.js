@@ -30,7 +30,7 @@ function Game() {
 	this._mainScene = new Scene(this._canvas);
 	this._uiScene   = new Scene(this._canvas);
 	this._pauseScreen = new ColorLayer();
-	this._pauseScreen.setColor(0, 0, 0, g_config.getFloat('ui.pauseScreen.opacity',0.85));
+	this._pauseScreen.setColor(0, 0, 0, g_config.ui.pauseScreen.opacity);
 	
 	// Camera
 	this._camera    = new Camera();
@@ -39,8 +39,8 @@ function Game() {
 	this._phase     = 0;   // 0: Build phase, 1: Place cannons, 2: Action, 3: Defeat, 4: Victory
 	this._phaseName = "";
 	this._firstRun  = true;
-	this._grid_x    = g_config.getInteger('global.grid.@width',32);
-	this._grid_y    = g_config.getInteger('global.grid.@height',32);
+	this._grid_x    = g_config.global.grid.width;
+	this._grid_y    = g_config.global.grid.height;
 	this._level_w   = 32;  // default value
 	this._level_h   = 24;  // default value
 	this._wave_num  = 0;   // Current wave number..
@@ -55,14 +55,14 @@ function Game() {
 	this._player_misses = 0;
 	this._player_kills  = 0;
 
-	this._cowProbability = this._initialCowProbability = g_config.getFloat("global.initialCowProbability", 0.1);
+	this._cowProbability = this._initialCowProbability = g_config.global.initialCowProbability;
 
 	// Cannons
 	this._cannons            = [];
-	this._cannons_available  = g_config.getFloat('global.numCannons.@initial',2);
+	this._cannons_available  = g_config.global.numCannons.initial;
 	this._cannons_actual     = this._cannons_available;
-	this._cannons_perWaveAdd = g_config.getFloat('global.numCannons.@perWave',0.5);
-	this._cannons_max        = g_config.getInteger('global.numCannons.@max',20);
+	this._cannons_perWaveAdd = g_config.global.numCannons.perWave;
+	this._cannons_max        = g_config.global.numCannons.max;
 
 	// Fortrifications
 	this._castles = [];
@@ -88,7 +88,7 @@ function Game() {
 	this._shadowLayer = new SceneNode();
 	this._cloudLayer = new SceneNode();
 	this._buildBackground = new ColorLayer();
-	this._buildBackground.setColor(0, 0, 0, g_config.getFloat('ui.buildBackground.opacity',0.5));
+	this._buildBackground.setColor(0, 0, 0, g_config.ui.buildBackground.opacity);
 	
 	this._cowzillaSound = g_assets.getSound("cowzilla-entrance");
 
@@ -108,7 +108,7 @@ function Game() {
 	this._enemy_transports_num = 0;
 	this._enemy_transports_num_perWaveAdd = 0;
 
-	this._cowTransportProbability = g_config.getFloat("global.cowTransportProbability");
+	this._cowTransportProbability = g_config.global.cowTransportProbability;
 	
 	// For now, we spawn five land troops per wave
 	this._enemy_land_troops = 5;
@@ -161,8 +161,8 @@ function Game() {
 	this._countdown_timer.setTextColor(255,255,255,1);
 	this._countdown_timer.setTextOutlineColor(0,0,0,1);
 	this._countdown_timer.visible = false;
-	this._messageDisplayTime = g_config.getFloat('ui.messageDisplayTime');
-	this._scoreDisplayTime = g_config.getFloat('ui.scoreDisplayTime');
+	this._messageDisplayTime = g_config.ui.messageDisplayTime;
+	this._scoreDisplayTime = g_config.ui.scoreDisplayTime;
 	
 	var that = this;
 	this._pauseButton = new SoftButton(g_assets.getBitmap('button-pause'));
@@ -325,8 +325,8 @@ Game.prototype.init = function() {
 
 		// Create clouds
 		// currently disabled in setting
-		if(g_config.getBoolean("effects.clouds.@enabled",false)) {
-			var num = g_config.getInteger("effects.clouds.@num",20);
+		if(g_config.effects.clouds.enabled) {
+			var num = g_config.effects.clouds.num;
 			for(var i = 0; i < num; ++i) {
 				var c = new Cloud();
 				this._clouds.push(c);
@@ -352,7 +352,7 @@ Game.prototype.init = function() {
 	///////////////
 
 	this._cannons = [];
-	this._cannons_available = g_config.getFloat('global.numCannons.@initial',2);
+	this._cannons_available = g_config.global.numCannons.initial;
 	this._cannons_actual = this._cannons_available;
 	this._player_score  = 0;
 	this._player_shots  = 0;
@@ -360,14 +360,14 @@ Game.prototype.init = function() {
 	this._player_misses = 0;
 	this._player_kills  = 0;
 	this._wave_num = 0;
-	this._cowProbability = this._initialCowProbability = g_config.getFloat("global.initialCowProbability", 0.1);
+	this._cowProbability = this._initialCowProbability = g_config.global.initialCowProbability;
 	this._player_score = 0;
 	this._enemies = [];
 	this._landTroops = [];
-	this._enemy_ships_num = g_config.getFloat('global.enemies.ships.@initial',3);
-	this._enemy_ships_num_perWaveAdd = g_config.getFloat('global.enemies.ships.@perWave',2);
-	this._enemy_transports_num = g_config.getFloat('global.enemies.transports.@initial',3);
-	this._enemy_transports_num_perWaveAdd = g_config.getFloat('global.enemies.transports.@perWave',2);
+	this._enemy_ships_num = g_config.global.enemies.ships.initial;
+	this._enemy_ships_num_perWaveAdd = g_config.global.enemies.ships.perWave;
+	this._enemy_transports_num = g_config.global.enemies.transports.initial;
+	this._enemy_transports_num_perWaveAdd = g_config.global.enemies.transports.perWave;
 
 	this._firstMegaCow = true;
 	this._hasCowzilla = false;
@@ -827,7 +827,7 @@ Game.prototype.initBuildPhase = function() {
 	trace("Game: init build phase");
 
 	this._phaseName = "Build phase";
-	this._phaseTimer.setTarget(g_config.getInteger('global.phaseTimeLimit.@build',15)).reset().start();
+	this._phaseTimer.setTarget(g_config.global.phaseTimeLimit.build).reset().start();
 
 	// Clean up walls after last battle
 	this._walls.cleanup();
@@ -891,7 +891,7 @@ Game.prototype.buildBlockDropped = function(x,y) {
 
 	x = this.getWorldX(x);
 	if(g_env.isMobile()) {
-		y = this.getWorldY(y - g_config.getFloat('ui.fingerSize',35)); // NOTE: the number is the height of the average finger...
+		y = this.getWorldY(y - g_config.ui.fingerSize); // NOTE: the number is the height of the average finger...
 	} else {
 		y = this.getWorldY(y);
 	}
@@ -985,7 +985,7 @@ Game.prototype.initPlacementPhase = function() {
 
 
 	this._phaseName = "Placement phase";
-	this._phaseTimer.setTarget(g_config.getInteger('global.phaseTimeLimit.@placement',10)).reset().start();
+	this._phaseTimer.setTarget(g_config.global.phaseTimeLimit.placement).reset().start();
 
 	this._cannonMarker.init();
 	this._pointerLayer.clearChildren();
@@ -1049,7 +1049,7 @@ Game.prototype.placeCannonDropped = function(x,y) {
 	x = this.getWorldX(x);
 	if(g_env.isMobile()) {
 		 // NOTE: the number is the height of the average finger, in pixels...
-		y = this.getWorldY(y - g_config.getFloat('ui.fingerSize',35));
+		y = this.getWorldY(y - g_config.ui.fingerSize);
 	} else {
 		y = this.getWorldY(y);
 	}
@@ -1121,7 +1121,7 @@ Game.prototype.endPlacementPhase = function() {
 Game.prototype.initBattlePhase = function() {
 	trace("Game: init battle phase");
 	this._phaseName = "Battle phase";
-	this._phaseTimer.setTarget(g_config.getInteger('global.phaseTimeLimit.@battle',9000)).reset().start();
+	this._phaseTimer.setTarget(g_config.global.phaseTimeLimit.battle).reset().start();
 	this._wave_num++;
 
 	this._ui_wave.setText("Wave: " + this._wave_num);

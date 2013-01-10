@@ -36,7 +36,7 @@ function Cow() {
 	
 	this._animation = this._anim_idle;
 	
-	this._maxWalkDistance = g_config.getFloat('enemies.cow.maxWalkDistance');
+	this._maxWalkDistance = g_config.enemies.cow.maxWalkDistance;
 	
 	this._state = Cow.state.idle;
 	this._direction = 0; // 0: left, 1: right
@@ -49,10 +49,10 @@ function Cow() {
 	this._off_x = 0;
 	this._off_y = 0;
 
-	this._mooProbability = g_config.getFloat('enemies.cow.mooProbability');
+	this._mooProbability = g_config.enemies.cow.mooProbability;
 
 	// Debug draw hack
-	if(g_config.getBoolean('global.debug',false)) {
+	if(g_config.global.debug) {
 		var that = this;	
 		var debug_draw = function(canvas,context,matrix) {
 			Sprite.prototype.draw.call(this,canvas,context,matrix);
@@ -96,21 +96,21 @@ function Cow() {
 	this._currentTarget = null;
 	
 	this._moveTimer = new Timer();
-	this._moveTimer.setTarget(g_config.getFloat('enemies.cow.moveDelay',1));
+	this._moveTimer.setTarget(g_config.enemies.cow.moveDelay);
 	this._moveTimer.start();
 	
 	this._deathTimer = new Timer();
-	this._deathTimer.setTarget(g_config.getFloat('enemies.cow.deathDelay',1));
+	this._deathTimer.setTarget(g_config.enemies.cow.deathDelay);
 
 	this._mooTimer = new Timer();
-	this._mooTimer.setTarget(g_config.getFloat('enemies.soldier.mooDelay',1));
+	this._mooTimer.setTarget(g_config.enemies.soldier.mooDelay);
 	this._mooTimer.start();
 	
-	this.setScoreValue(g_config.getFloat('enemies.cow.score',1));
-	this.setHitpoints(g_config.getFloat('enemies.cow.health',1));
-	this.setShotDamage(g_config.getFloat('enemies.cow.damage',1));
-	this.setShotDamageVariance(g_config.getFloat('enemies.cow.damage.@variance',0));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.cow.speed.@min',45),g_config.getFloat('enemies.cow.speed.@max',45)));
+	this.setScoreValue(g_config.enemies.cow.score);
+	this.setHitpoints(g_config.enemies.cow.health);
+	this.setShotDamage(g_config.enemies.cow.damage.value);
+	this.setShotDamageVariance(g_config.enemies.cow.damage.variance);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min, g_config.enemies.cow.speed.max));
 	
 }
 Cow.inherits(Enemy);
@@ -241,11 +241,11 @@ Cow.prototype.spawn = function(x, y) {
 		y *= g_game.getGridSizeY();
 	}
 	
-	this.setScoreValue(g_config.getFloat('enemies.cow.score',1));
-	this.setHitpoints(g_config.getFloat('enemies.cow.health',1));
-	this.setAccuracy(g_config.getFloat('enemies.cow.accuracy',0));
-	this.setAttackRadius(g_config.getFloat('enemies.cow.range',20));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.cow.speed.@min',45),g_config.getFloat('enemies.cow.speed.@max',45)));
+	this.setScoreValue(g_config.enemies.cow.score);
+	this.setHitpoints(g_config.enemies.cow.health);
+	this.setAccuracy(g_config.enemies.cow.accuracy);
+	this.setAttackRadius(g_config.enemies.cow.range);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min, g_config.enemies.cow.speed.max));
 	
 	this.setAlive(true);
 	this.setActive(true);

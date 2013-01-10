@@ -30,7 +30,7 @@ function CowBullet() {
 
 	this._scale_min = 1;
 
-	this._megaProb = g_config.getFloat("global.megaCowBulletProbability");
+	this._megaProb = g_config.global.megaCowBulletProbability;
 }
 
 CowBullet.inherits(Bullet);
@@ -45,7 +45,7 @@ CowBullet.prototype.setActive = function(active){
 			this._sprite = this._spriteMega;
 		}else{
 			// this._scale_min = 1;
-			this._scale_max = g_config.getFloat('global.cannonballs.@scaleMax',1.35);
+			this._scale_max = g_config.global.cannonballs.scaleMax;
 			this._is_big = false;
 			this._sprite = this._spriteNormal;
 		}

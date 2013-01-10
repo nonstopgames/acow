@@ -34,7 +34,7 @@ function Soldier() {
 	
 	this._animation = this._anim_idle;
 	
-	this._maxWalkDistance = g_config.getFloat('enemies.soldier.maxWalkDistance');
+	this._maxWalkDistance = g_config.enemies.soldier.maxWalkDistance;
 	
 	this._state = Soldier.state.idle;
 	this._direction = 0; // 0: left, 1: right
@@ -45,7 +45,7 @@ function Soldier() {
 	this._last_y = 0;
 	
 	// Debug draw hack
-	if(g_config.getBoolean('global.debug',false)) {
+	if(g_config.global.debug) {
 		var that = this;	
 		var debug_draw = function(canvas,context,matrix) {
 			Sprite.prototype.draw.call(this,canvas,context,matrix);
@@ -88,23 +88,23 @@ function Soldier() {
 	this._currentTarget = null;
 	
 	this._moveTimer = new Timer();
-	this._moveTimer.setTarget(g_config.getFloat('enemies.soldier.moveDelay',1));
+	this._moveTimer.setTarget(g_config.enemies.soldier.moveDelay);
 	this._moveTimer.start();
 	
 	this._attackTimer = new Timer();
-	this._attackTimer.setTarget(g_config.getFloat('enemies.soldier.attackDelay',1));
+	this._attackTimer.setTarget(g_config.enemies.soldier.attackDelay);
 	this._attackTimer.start();
 	
 	this._deathTimer = new Timer();
-	this._deathTimer.setTarget(g_config.getFloat('enemies.soldier.deathDelay',1));
+	this._deathTimer.setTarget(g_config.enemies.soldier.deathDelay);
 	
-	this.setScoreValue(g_config.getFloat('enemies.soldier.score',1));
-	this.setHitpoints(g_config.getFloat('enemies.soldier.health',1));
-	this.setAccuracy(g_config.getFloat('enemies.soldier.accuracy',0));
-	this.setShotDamage(g_config.getFloat('enemies.soldier.damage',1));
-	this.setShotDamageVariance(g_config.getFloat('enemies.soldier.damage.@variance',0));
-	this.setAttackRadius(g_config.getFloat('enemies.soldier.range',20));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.soldier.speed.@min',45),g_config.getFloat('enemies.soldier.speed.@max',45)));
+	this.setScoreValue(g_config.enemies.soldier.score);
+	this.setHitpoints(g_config.enemies.soldier.health);
+	this.setAccuracy(g_config.enemies.soldier.accuracy);
+	this.setShotDamage(g_config.enemies.soldier.damage.value);
+	this.setShotDamageVariance(g_config.enemies.soldier.damage.variance);
+	this.setAttackRadius(g_config.enemies.soldier.range);
+	this.setSpeed(Math.rand(g_config.enemies.soldier.speed.min,g_config.enemies.soldier.speed.max));
 	
 }
 Soldier.inherits(Enemy);
@@ -193,11 +193,11 @@ Soldier.prototype.setDirection = function(bleft) {
  */
 Soldier.prototype.spawn = function(x,y) {
 	
-	this.setScoreValue(g_config.getFloat('enemies.soldier.score',1));
-	this.setHitpoints(g_config.getFloat('enemies.soldier.health',1));
-	this.setAccuracy(g_config.getFloat('enemies.soldier.accuracy',0));
-	this.setAttackRadius(g_config.getFloat('enemies.soldier.range',20));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.soldier.speed.@min',45),g_config.getFloat('enemies.soldier.speed.@max',45)));
+	this.setScoreValue(g_config.enemies.soldier.score);
+	this.setHitpoints(g_config.enemies.soldier.health);
+	this.setAccuracy(g_config.enemies.soldier.accuracy);
+	this.setAttackRadius(g_config.enemies.soldier.range);
+	this.setSpeed(Math.rand(g_config.enemies.soldier.speed.min,g_config.enemies.soldier.speed.max));
 	
 	this.setAlive(true);
 	this.setActive(true);
@@ -245,7 +245,7 @@ Soldier.prototype.update = function(sync) {
 				// Add random offset to target coordinates for nicer movement
 				var offset = new vec2((Math.random() - 0.5) * 2,(Math.random() - 0.5) * 2);
 				offset.normalize();
-				offset.setLength(Math.random() * g_config.getFloat('enemies.soldier.waypointOffset'));
+				offset.setLength(Math.random() * g_config.enemies.soldier.waypointOffset);
 				target_wp.x += offset.x;
 				target_wp.y += offset.y;
 

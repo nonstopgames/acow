@@ -310,6 +310,7 @@ html,body {
 #menu-highscore {
 	background: rgba(0,0,0,0.7);
 	display: inline-block;
+	z-index: 2;
 
 	-webkit-transition-duration: 0.5s;
 	-moz-transition-duration: 0.5s;

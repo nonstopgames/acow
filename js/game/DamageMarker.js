@@ -14,28 +14,28 @@
 function DamageMarker() {
 	
 	if(!DamageMarker.text_static_init) {
-		DamageMarker.text_r = g_config.getInteger('effects.damageMarker.color.@r',255);
-		DamageMarker.text_g = g_config.getInteger('effects.damageMarker.color.@g',255);
-		DamageMarker.text_b = g_config.getInteger('effects.damageMarker.color.@b',255);
-		DamageMarker.text_a = g_config.getInteger('effects.damageMarker.color.@a',255) / 255.0;
-		DamageMarker.text_outline = g_config.getBoolean('effects.damageMarker.outline',false);
-		DamageMarker.text_outline_r = g_config.getInteger('effects.damageMarker.outline.@r',255);
-		DamageMarker.text_outline_g = g_config.getInteger('effects.damageMarker.outline.@g',255);
-		DamageMarker.text_outline_b = g_config.getInteger('effects.damageMarker.outline.@b',255);
-		DamageMarker.text_outline_a = g_config.getInteger('effects.damageMarker.outline.@a',255) / 255.0;
-		DamageMarker.text_glow = g_config.getBoolean('effects.damageMarker.glow',false);
-		DamageMarker.text_glow_r = g_config.getInteger('effects.damageMarker.glow.@r',255);
-		DamageMarker.text_glow_g = g_config.getInteger('effects.damageMarker.glow.@g',255);
-		DamageMarker.text_glow_b = g_config.getInteger('effects.damageMarker.glow.@b',255);
-		DamageMarker.text_glow_a = g_config.getInteger('effects.damageMarker.glow.@a',255) / 255.0;
-		DamageMarker.text_glow_size = g_config.getInteger('effects.damageMarker.glow.@radius',10);
-		DamageMarker.text_size = g_config.getInteger('effects.damageMarker.font.@size',20);
-		DamageMarker.text_font = g_config.getString('effects.damageMarker.font.@name','Arial Bold');
-		DamageMarker.text_duration = g_config.getInteger('effects.damageMarker.movement.@duration',1000) / 1000.0;
-		DamageMarker.text_delta_x = g_config.getInteger('effects.damageMarker.movement.@delta_x');
-		DamageMarker.text_delta_y = g_config.getInteger('effects.damageMarker.movement.@delta_y');
-		DamageMarker.text_offset_x = g_config.getInteger('effects.damageMarker.position.@offset_x',0);
-		DamageMarker.text_offset_y = g_config.getInteger('effects.damageMarker.position.@offset_y',0);
+		DamageMarker.text_r = g_config.effects.damageMarker.color.r;
+		DamageMarker.text_g = g_config.effects.damageMarker.color.g;
+		DamageMarker.text_b = g_config.effects.damageMarker.color.b;
+		DamageMarker.text_a = g_config.effects.damageMarker.color.a / 255.0;
+		DamageMarker.text_outline = g_config.effects.damageMarker.outline.value;
+		DamageMarker.text_outline_r = g_config.effects.damageMarker.outline.r;
+		DamageMarker.text_outline_g = g_config.effects.damageMarker.outline.g;
+		DamageMarker.text_outline_b = g_config.effects.damageMarker.outline.b;
+		DamageMarker.text_outline_a = g_config.effects.damageMarker.outline.a / 255.0;
+		DamageMarker.text_glow = g_config.effects.damageMarker.glow.value;
+		DamageMarker.text_glow_r = g_config.effects.damageMarker.glow.r;
+		DamageMarker.text_glow_g = g_config.effects.damageMarker.glow.g;
+		DamageMarker.text_glow_b = g_config.effects.damageMarker.glow.b;
+		DamageMarker.text_glow_a = g_config.effects.damageMarker.glow.a / 255.0;
+		DamageMarker.text_glow_size = g_config.effects.damageMarker.glow.radius;
+		DamageMarker.text_size = g_config.effects.damageMarker.font.size;
+		DamageMarker.text_font = g_config.effects.damageMarker.font.name;
+		DamageMarker.text_duration = g_config.effects.damageMarker.movement.duration / 1000.0;
+		DamageMarker.text_delta_x = g_config.effects.damageMarker.movement.delta_x;
+		DamageMarker.text_delta_y = g_config.effects.damageMarker.movement.delta_y;
+		DamageMarker.text_offset_x = g_config.effects.damageMarker.position.offset_x;
+		DamageMarker.text_offset_y = g_config.effects.damageMarker.position.offset_y;
 		DamageMarker.text_static_init = true;
 	}
 	

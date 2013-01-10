@@ -13,28 +13,28 @@
 function ScoreMarker() {
 	
 	if(!ScoreMarker.text_static_init) {
-		ScoreMarker.text_r = g_config.getInteger('effects.scoreMarker.color.@r',255);
-		ScoreMarker.text_g = g_config.getInteger('effects.scoreMarker.color.@g',255);
-		ScoreMarker.text_b = g_config.getInteger('effects.scoreMarker.color.@b',255);
-		ScoreMarker.text_a = g_config.getInteger('effects.scoreMarker.color.@a',255) / 255.0;
-		ScoreMarker.text_outline = g_config.getBoolean('effects.scoreMarker.outline',false);
-		ScoreMarker.text_outline_r = g_config.getInteger('effects.scoreMarker.outline.@r',255);
-		ScoreMarker.text_outline_g = g_config.getInteger('effects.scoreMarker.outline.@g',255);
-		ScoreMarker.text_outline_b = g_config.getInteger('effects.scoreMarker.outline.@b',255);
-		ScoreMarker.text_outline_a = g_config.getInteger('effects.scoreMarker.outline.@a',255) / 255.0;
-		ScoreMarker.text_glow = g_config.getBoolean('effects.scoreMarker.glow',false);
-		ScoreMarker.text_glow_r = g_config.getInteger('effects.scoreMarker.glow.@r',255);
-		ScoreMarker.text_glow_g = g_config.getInteger('effects.scoreMarker.glow.@g',255);
-		ScoreMarker.text_glow_b = g_config.getInteger('effects.scoreMarker.glow.@b',255);
-		ScoreMarker.text_glow_a = g_config.getInteger('effects.scoreMarker.glow.@a',255) / 255.0;
-		ScoreMarker.text_glow_size = g_config.getInteger('effects.scoreMarker.glow.@radius',10);
-		ScoreMarker.text_size = g_config.getInteger('effects.scoreMarker.font.@size',20);
-		ScoreMarker.text_font = g_config.getString('effects.scoreMarker.font.@name','Arial Bold');
-		ScoreMarker.text_duration = g_config.getInteger('effects.scoreMarker.movement.@duration',1000) / 1000.0;
-		ScoreMarker.text_delta_x = g_config.getInteger('effects.scoreMarker.movement.@delta_x');
-		ScoreMarker.text_delta_y = g_config.getInteger('effects.scoreMarker.movement.@delta_y');
-		ScoreMarker.text_offset_x = g_config.getInteger('effects.scoreMarker.position.@offset_x',0);
-		ScoreMarker.text_offset_y = g_config.getInteger('effects.scoreMarker.position.@offset_y',0);
+		ScoreMarker.text_r = g_config.effects.scoreMarker.color.r;
+		ScoreMarker.text_g = g_config.effects.scoreMarker.color.g;
+		ScoreMarker.text_b = g_config.effects.scoreMarker.color.b;
+		ScoreMarker.text_a = g_config.effects.scoreMarker.color.a / 255.0;
+		ScoreMarker.text_outline = g_config.effects.scoreMarker.outline.value;
+		ScoreMarker.text_outline_r = g_config.effects.scoreMarker.outline.r;
+		ScoreMarker.text_outline_g = g_config.effects.scoreMarker.outline.g;
+		ScoreMarker.text_outline_b = g_config.effects.scoreMarker.outline.b;
+		ScoreMarker.text_outline_a = g_config.effects.scoreMarker.outline.a / 255.0;
+		ScoreMarker.text_glow = g_config.effects.scoreMarker.glow.value;
+		ScoreMarker.text_glow_r = g_config.effects.scoreMarker.glow.r;
+		ScoreMarker.text_glow_g = g_config.effects.scoreMarker.glow.g;
+		ScoreMarker.text_glow_b = g_config.effects.scoreMarker.glow.b;
+		ScoreMarker.text_glow_a = g_config.effects.scoreMarker.glow.a / 255.0;
+		ScoreMarker.text_glow_size = g_config.effects.scoreMarker.glow.radius;
+		ScoreMarker.text_size = g_config.effects.scoreMarker.font.size;
+		ScoreMarker.text_font = g_config.effects.scoreMarker.font.name;
+		ScoreMarker.text_duration = g_config.effects.scoreMarker.movement.duration / 1000.0;
+		ScoreMarker.text_delta_x = g_config.effects.scoreMarker.movement.delta_x;
+		ScoreMarker.text_delta_y = g_config.effects.scoreMarker.movement.delta_y;
+		ScoreMarker.text_offset_x = g_config.effects.scoreMarker.position.offset_x;
+		ScoreMarker.text_offset_y = g_config.effects.scoreMarker.position.offset_y;
 		ScoreMarker.text_static_init = true;
 	}
 	

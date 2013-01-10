@@ -23,11 +23,9 @@ small screen size of iPhone, nor does it support audio on iOS.
 
 `index.html` is the only HTML file and the entry point for the game.
 
-`/js` contains all the javascript files. The entry point is in `Main.js` while `Game.js` contains the main logic flow of the game.
+`/js` contains all the javascript files. The entry point is in `Main.js` while `Game.js` contains the main logic flow of the game. `AssetsData.js` and `Configuration.js` contains the necessary meta data for the game.
 
 `/css` contains all the css style files.
-
-`assets.xml` and `configuration.xml` contains the necessary meta data for the game.
 
 `/media` contains all the media files.
 
@@ -35,8 +33,7 @@ small screen size of iPhone, nor does it support audio on iOS.
 
 
 The game can be played locally by opening index.html in your
-browser. However, since Chrome doesn't allow XHR to load local files,
-you have to [disable the its security setting](http://stackoverflow.com/questions/4819060/allow-google-chrome-to-use-xmlhttprequest-to-load-a-url-from-a-local-file), or the game won't run.
+browser.
 
 You can also set up the game in a server but should implement the
 simple API for storing and fetching the high scores. To support the

@@ -21,8 +21,6 @@
 
 window.g_env         = null;   // Environment information
 window.g_input       = null;   // Input object
-window.g_assets      = null;   // XML-based asset loader and manager
-window.g_config      = null;   // XML-based configuration loader and manager
 window.g_engine      = null;   // Global engine reference (get from singleton to allow for some cowboy code if needed)
 window.g_menu        = null;   // Global menu object ref
 window.g_game        = null;   // Global game object ref
@@ -64,37 +62,14 @@ function CastleDefense() {
         }
     }
 
-	window.g_assets = new AssetLoader('assets.xml');
-	window.g_config = new Configuration('configuration.xml');
-
-
-	// Load assets and configuration
-	var configLoaded   = false;
-	var assetsLoaded   = false;
-
-	var configLoadComplete = function() {
-		configLoaded = true;
-		if(assetsLoaded) {
-			g_main.init();
-		}
-	};
-
-	var assetLoadComplete = function() {
-		assetsLoaded = true;
-		if(configLoaded) {
-			g_main.init();
-		}
-	};
-
-	g_config.onLoadComplete = configLoadComplete;
-	g_assets.onLoadComplete = assetLoadComplete;
-
-	g_config.load();
 	// init web audio with dummy mp3
 	bozz.initToWebAudio("media/snd/piece_rotate.mp3");
-	g_assets.load(true, function(p) {
+	var loader = AssetLoader(g_assets);
+	loader.load(function(p){
 		p = ~~(p * 100);
 		$('#loading #bar').css('width', p + '%' );
+	}, function(){
+		g_main.init();
 	});
 }
 
@@ -110,13 +85,14 @@ CastleDefense.prototype.init = function() {
 	window.g_engine = new Engine('game-container','game');
 	window.g_env = g_engine.getEnvironment();
 	window.g_input = g_engine.getInput();
+	window.g_game = new Game();
 
 	// Create menu object - menu creates game object when play is pressed
 	window.g_menu = new Menu();
 	g_menu.init();              // Initialize menu
 	g_engine.start();
 
-	window.DEBUG = g_config.getBoolean('global.debug',false);
+	window.DEBUG = g_config.global.debug;
 
 	trace("Castle Defense running.");
 

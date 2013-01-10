@@ -100,9 +100,9 @@ Tileset.prototype.getTileIndex = function(tile_name) {
 Tileset.prototype.setTile = function(tile) {
 	if(typeof(tile) === 'string') {
 		tile = this._tile_names[tile] || 0;
-		if(tile instanceof Array) {
-			tile = Math.rand(tile.length);
-		}
+	}
+	if(tile instanceof Array) {
+		tile = tile[Math.rand(tile.length)];
 	}
 
 	this.source_x = (tile * this.source_w) % (this._image_w);
@@ -125,7 +125,7 @@ Tileset.prototype.drawTile = function(tile,context,x,y) {
 		tile = this._tile_names[tile] || 0;
 	}
 	if(tile instanceof Array) {
-		tile = Math.rand(tile.length);
+		tile = tile[Math.rand(tile.length)];
 	}
 
 	this.source_x = (tile * this.source_w) % (this._image_w);

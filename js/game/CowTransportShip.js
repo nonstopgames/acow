@@ -10,9 +10,9 @@
 
 function CowTransportShip(){
 	TransportShip.call(this);
-	this._cowzillaProb = g_config.getFloat("enemies.cowTransport.cowzillaProbability");
-	this._megaProb = g_config.getFloat("enemies.cowTransport.megacowProbability");
-	this._santaProb = g_config.getFloat("enemies.cowTransport.santacowProbability");
+	this._cowzillaProb = g_config.enemies.cowTransport.cowzillaProbability;
+	this._megaProb = g_config.enemies.cowTransport.megacowProbability;
+	this._santaProb = g_config.enemies.cowTransport.santacowProbability;
 }
 
 CowTransportShip.inherits(TransportShip);

@@ -65,7 +65,7 @@ function Wall() {
 	this._used_cannons = 0;
 	this._num_walltiles = 0;
 
-	this._walltype_health = g_config.getFloat('global.wallHealth');
+	this._walltype_health = g_config.global.wallHealth;
 	
 	/*
 	 * One-time operation: store tile indices in a hashmap for faster access

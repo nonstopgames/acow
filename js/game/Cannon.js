@@ -23,7 +23,7 @@ function Cannon() {
 	
 	this._sound_shoot = g_assets.getSound('playerCannonFire');
 	
-	if(g_config.getBoolean('global.debug',false)) {
+	if(g_config.global.debug) {
 		var that = this;	
 		var debug_draw = function(canvas,context,matrix) {
 			Sprite.prototype.draw.call(this,canvas,context,matrix);
@@ -62,19 +62,19 @@ function Cannon() {
 	this._real_x = 0;
 	this._real_y = 0;
 
-	this._muzzle_offset_x = g_config.getFloat('cannons.basic.muzzleOffset.@x',0);
-	this._muzzle_offset_y = g_config.getFloat('cannons.basic.muzzleOffset.@y',0);
+	this._muzzle_offset_x = g_config.cannons.basic.muzzleOffset.x;
+	this._muzzle_offset_y = g_config.cannons.basic.muzzleOffset.x;
 	
 	this._flightTime = 0;
-	this._speed = g_config.getFloat('cannons.basic.speed');
+	this._speed = g_config.cannons.basic.speed;
 	this._loadingTimer = new Timer();
 	this._currentTarget = null;
 
 	// Get damage values
-	this.setAccuracy(g_config.getFloat('cannons.basic.accuracy',0));
-	this.setShotDamage(g_config.getFloat('cannons.basic.damage',1));
-	this.setShotDamageVariance(g_config.getFloat('cannons.basic.damage.@variance',0.2));
-	this.setAttackRadius(g_config.getFloat('cannons.basic.range',1200));
+	this.setAccuracy(g_config.cannons.basic.accuracy);
+	this.setShotDamage(g_config.cannons.basic.damage.value);
+	this.setShotDamageVariance(g_config.cannons.basic.damage.variance);
+	this.setAttackRadius(g_config.cannons.basic.range);
 };
 
 Cannon.inherits(Friendly);

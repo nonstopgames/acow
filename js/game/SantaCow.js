@@ -27,7 +27,7 @@ function SantaCow(){
 
 	this._dy = 12;
 	
-	this._maxWalkDistance = g_config.getFloat('enemies.cow.maxWalkDistance');
+	this._maxWalkDistance = g_config.enemies.cow.maxWalkDistance;
 	
 	this._state = Cow.state.idle;
 	this._direction = 0; // 0: left, 1: right
@@ -38,7 +38,7 @@ function SantaCow(){
 	this._off_x = 0;
 	this._off_y = 0;
 
-	this._mooProbability = g_config.getFloat('enemies.cow.mooProbability');
+	this._mooProbability = g_config.enemies.cow.mooProbability;
 
 	this.setHitRectSize(this._sprite.getWidth(),this._sprite.getHeight());
 	this.setHitOffset(this._sprite.getWidth() * -0.5,this._sprite.getHeight() * -0.5);
@@ -48,27 +48,27 @@ function SantaCow(){
 	this._currentTarget = null;
 	
 	this._moveTimer = new Timer();
-	this._moveTimer.setTarget(g_config.getFloat('enemies.cow.moveDelay',1) / 3);
+	this._moveTimer.setTarget(g_config.enemies.cow.moveDelay / 3);
 	this._moveTimer.start();
 	
 	this._deathTimer = new Timer();
-	this._deathTimer.setTarget(g_config.getFloat('enemies.cow.deathDelay',1));
+	this._deathTimer.setTarget(g_config.enemies.cow.deathDelay);
 
 	this._mooTimer = new Timer();
-	this._mooTimer.setTarget(g_config.getFloat('enemies.soldier.mooDelay',1));
+	this._mooTimer.setTarget(g_config.enemies.soldier.mooDelay);
 	this._mooTimer.start();
 	
-	this.setShotDamage(g_config.getFloat('enemies.cow.damage',1));
-	this.setShotDamageVariance(g_config.getFloat('enemies.cow.damage.@variance',0));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.cow.speed.@min',45) * 1.5,g_config.getFloat('enemies.cow.speed.@max',45)) * 1.5);
+	this.setShotDamage(g_config.enemies.cow.damage.value);
+	this.setShotDamageVariance(g_config.enemies.cow.damage.variance);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max) * 1.5);
 }
 
 SantaCow.inherits(Cow);
 
 SantaCow.prototype.spawn = function(x, y){
 	Cow.prototype.spawn.call(this, x, y);
-	this.setScoreValue(-2 * g_config.getFloat('enemies.cow.score',1));
-	this.setSpeed(Math.rand(g_config.getFloat('enemies.cow.speed.@min',45) * 1.5,g_config.getFloat('enemies.cow.speed.@max',45)) * 1.5);
+	this.setScoreValue(-2 * g_config.enemies.cow.score);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max) * 1.5);
 }
 
 /*
