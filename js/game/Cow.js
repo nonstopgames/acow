@@ -103,7 +103,7 @@ function Cow() {
 	this._deathTimer.setTarget(g_config.enemies.cow.deathDelay);
 
 	this._mooTimer = new Timer();
-	this._mooTimer.setTarget(g_config.enemies.soldier.mooDelay);
+	this._mooTimer.setTarget(g_config.enemies.cow.mooDelay);
 	this._mooTimer.start();
 	
 	this.setScoreValue(g_config.enemies.cow.score);

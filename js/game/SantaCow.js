@@ -55,12 +55,12 @@ function SantaCow(){
 	this._deathTimer.setTarget(g_config.enemies.cow.deathDelay);
 
 	this._mooTimer = new Timer();
-	this._mooTimer.setTarget(g_config.enemies.soldier.mooDelay);
+	this._mooTimer.setTarget(g_config.enemies.cow.mooDelay);
 	this._mooTimer.start();
 	
 	this.setShotDamage(g_config.enemies.cow.damage.value);
 	this.setShotDamageVariance(g_config.enemies.cow.damage.variance);
-	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max) * 1.5);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max * 1.5));
 }
 
 SantaCow.inherits(Cow);
@@ -68,7 +68,7 @@ SantaCow.inherits(Cow);
 SantaCow.prototype.spawn = function(x, y){
 	Cow.prototype.spawn.call(this, x, y);
 	this.setScoreValue(-2 * g_config.enemies.cow.score);
-	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max) * 1.5);
+	this.setSpeed(Math.rand(g_config.enemies.cow.speed.min * 1.5,g_config.enemies.cow.speed.max * 1.5));
 }
 
 /*
