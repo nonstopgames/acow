@@ -362,8 +362,8 @@
 
 				trace("Environment init");
 
-				this._dev_type  = $('meta[name=type]').attr('content');
-				this._dev_iface = $('meta[name=interface]').attr('content');
+				this._dev_type  = window.type;
+				this._dev_iface = window.iface;
 
 				// Create game content
 				this._container = this.createDiv(contentName);

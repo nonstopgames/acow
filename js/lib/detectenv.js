@@ -56,17 +56,4 @@ function detectEnvironment() {
 		if(agent.indexOf('Firefox') != -1) return 'Firefox';
 		if(window.opera) return 'Opera';
 	})();
-
-	// Create tags
-	var iftag = document.createElement('meta');
-	iftag.name = "interface";
-	iftag.content = window.iface;
-	var typetag = document.createElement('meta');
-	typetag.name = "type";
-	typetag.content = window.type;
-
-	// Add tags to document (game source expects to find them there)
-	document.getElementsByTagName('head')[0].appendChild(iftag);
-	document.getElementsByTagName('head')[0].appendChild(typetag);
-
 }
